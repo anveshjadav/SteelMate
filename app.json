@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "SteelCalc IS808",
+    "slug": "steelcalc-is808",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.steelcalc.is808"
+    },
+    "android": {
+      "package": "com.steelcalc.is808",
+      "adaptiveIcon": {
+        "backgroundColor": "#1A5FA8"
+      }
+    },
+    "sdkVersion": "51.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "dc062ce1-16b3-4a49-92ec-aea439a267f6"
+      }
+    }
+  }
+}
