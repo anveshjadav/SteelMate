@@ -109,11 +109,11 @@ export default function SectionScreen({ state, setState }) {
       {!state.memberType && (
         <View style={styles.hintCard}>
           <Text style={styles.hintIcon}>🏗️</Text>
-          <Text style={styles.hintTitle}>IS 808 : 1989</Text>
-          <Text style={styles.hintText}>
+          <Text style={styles.hintTitle}>For Educational Purposes Only</Text>
+        {/*   <Text style={styles.hintText}>
             Indian Standard for Hot Rolled Steel Beam, Column, Channel and Angle Sections
-          </Text>
-          <Text style={styles.hintSub}>Select a member type above to begin</Text>
+          </Text> */}
+          <Text style={styles.hintSub}>SteelMate is provided for educational, learning, and reference purposes only. While every effort has been made to ensure the accuracy of the calculations, the results should not be used as the sole basis for engineering design, fabrication, construction, or safety-critical decisions.</Text>
         </View>
       )}
     </ScrollView>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TouchableOpacity, StyleSheet,
+  View, Text, TouchableOpacity, Image,StyleSheet,
   SafeAreaView, StatusBar, Platform,
 } from 'react-native';
 import { ThemeProvider, useTheme } from './src/theme/ThemeContext';
@@ -47,7 +47,8 @@ function AppContent() {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <View style={styles.logoBox}>
-            <Text style={styles.logoIcon}>🔩</Text>
+            {/* <Text style={styles.logoIcon}>🔩</Text> */}
+            <Image source={require('./assets/icon2.png')} style={{ width: 40, height:40 }} /> 
           </View>
           <View>
             <Text style={styles.appTitle}>SteelCalc</Text>
@@ -148,7 +149,7 @@ const makeStyles = (C) => StyleSheet.create({
   },
   headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   logoBox: {
-    width: 40, height: 40, borderRadius: 10, backgroundColor: C.accentLight,
+    width: 40, height: 40, borderRadius: 40, backgroundColor: C.accentLight,
     alignItems: 'center', justifyContent: 'center',
   },
   logoIcon: { fontSize: 20 },

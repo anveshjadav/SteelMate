@@ -163,7 +163,7 @@ export default function ResultScreen({ state, onReset }) {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.footer}>IS 808 : 1989 (Reaffirmed 2004)  •  Bureau of Indian Standards</Text>
+      <Text style={styles.footer}>Always use OEM data for accurate calculations</Text>
     </ScrollView>
   );
 }

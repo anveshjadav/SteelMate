@@ -1,27 +1,49 @@
 {
   "expo": {
-    "name": "SteelCalc IS808",
-    "slug": "steelcalc-is808",
+    "name": "SteelMate",
+    "slug": "steelmate",
     "version": "1.0.0",
     "orientation": "portrait",
+    "newArchEnabled": true,
     "userInterfaceStyle": "automatic",
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.steelcalc.is808"
+      "bundleIdentifier": "com.anveshjadav.steelmate"
     },
     "android": {
-      "package": "com.steelcalc.is808",
+      "package": "com.anveshjadav.steelmate",
       "adaptiveIcon": {
-        "backgroundColor": "#1A5FA8"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
       }
     },
-    "sdkVersion": "51.0.0",
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,           
+            "buildToolsVersion": "35.0.0"
+          }
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
     "extra": {
       "eas": {
-        "projectId": "dc062ce1-16b3-4a49-92ec-aea439a267f6"
+        "projectId": "b95c0bdb-99d4-4fdd-92c7-24ecb3b2d113"
       }
     }
   }
