@@ -4,6 +4,7 @@ import {
   SafeAreaView, StatusBar, Platform,
 } from 'react-native';
 import { ThemeProvider, useTheme } from './src/theme/ThemeContext';
+import { RADIUS, TYPE } from './src/theme/tokens';
 import SectionScreen from './src/screens/SectionScreen';
 import CalculateScreen from './src/screens/CalculateScreen';
 import ResultScreen from './src/screens/ResultScreen';
@@ -149,14 +150,14 @@ const makeStyles = (C) => StyleSheet.create({
   },
   headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   logoBox: {
-    width: 40, height: 40, borderRadius: 40, backgroundColor: C.accentLight,
-    alignItems: 'center', justifyContent: 'center',
+    width: 40, height: 40, borderRadius: RADIUS.pill, backgroundColor: C.accentLight,
+    alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: C.accent + '33',
   },
   logoIcon: { fontSize: 20 },
-  appTitle: { fontSize: 17, fontWeight: '700', color: C.text, letterSpacing: -0.3 },
-  appSub: { fontSize: 11, color: C.textTertiary, fontWeight: '500' },
+  appTitle: { fontSize: 17, fontWeight: TYPE.bold, color: C.text, letterSpacing: -0.3 },
+  appSub: { fontSize: 11, color: C.textTertiary, fontWeight: TYPE.medium },
   themeBtn: {
-    width: 38, height: 38, borderRadius: 10, backgroundColor: C.surface2,
+    width: 38, height: 38, borderRadius: RADIUS.md, backgroundColor: C.surface2,
     borderWidth: 1, borderColor: C.border, alignItems: 'center', justifyContent: 'center',
   },
   themeBtnText: { fontSize: 18 },
@@ -170,8 +171,8 @@ const makeStyles = (C) => StyleSheet.create({
   },
   tabActive: {},
   tabIcon: { fontSize: 16, marginBottom: 2 },
-  tabLabel: { fontSize: 11, fontWeight: '500', color: C.tabInactive },
-  tabLabelActive: { color: C.tabActive, fontWeight: '700' },
+  tabLabel: { fontSize: 11, fontWeight: TYPE.medium, color: C.tabInactive },
+  tabLabelActive: { color: C.tabActive, fontWeight: TYPE.bold },
   tabIndicator: {
     position: 'absolute', bottom: 0, left: '15%', right: '15%',
     height: 3, backgroundColor: C.tabActive, borderRadius: 2,
@@ -182,13 +183,13 @@ const makeStyles = (C) => StyleSheet.create({
     borderBottomWidth: 1, borderBottomColor: C.border,
   },
   stepDot: {
-    width: 24, height: 24, borderRadius: 12, borderWidth: 2,
+    width: 24, height: 24, borderRadius: RADIUS.pill, borderWidth: 2,
     borderColor: C.border, backgroundColor: C.surface2,
     alignItems: 'center', justifyContent: 'center',
   },
   stepDotActive: { borderColor: C.accent, backgroundColor: C.accentLight },
   stepDotDone: { borderColor: C.success, backgroundColor: C.successLight },
-  stepNum: { fontSize: 11, fontWeight: '700', color: C.textTertiary },
+  stepNum: { fontSize: 11, fontWeight: TYPE.bold, color: C.textTertiary },
   stepNumActive: { color: C.accent },
   stepLine: { flex: 1, height: 2, backgroundColor: C.border, marginHorizontal: 4 },
   stepLineDone: { backgroundColor: C.success },
@@ -199,12 +200,12 @@ const makeStyles = (C) => StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 4 : 10,
   },
   navBtn: {
-    paddingVertical: 10, paddingHorizontal: 20, borderRadius: 12,
+    paddingVertical: 10, paddingHorizontal: 20, borderRadius: RADIUS.md,
     backgroundColor: C.surface2, borderWidth: 1, borderColor: C.border, minWidth: 90, alignItems: 'center',
   },
   navBtnNext: { backgroundColor: C.accent, borderColor: C.accent },
   navBtnDisabled: { opacity: 0.4 },
-  navBtnText: { fontSize: 14, fontWeight: '700' },
+  navBtnText: { fontSize: 14, fontWeight: TYPE.bold },
   navCenter: { flex: 1, alignItems: 'center' },
-  navPageText: { fontSize: 12, color: C.textTertiary, fontWeight: '600' },
+  navPageText: { fontSize: 12, color: C.textTertiary, fontWeight: TYPE.semibold },
 });

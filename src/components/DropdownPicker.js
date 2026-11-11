@@ -4,6 +4,7 @@ import {
   StyleSheet, TextInput, StatusBar, Platform,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
+import { RADIUS, TYPE } from '../theme/tokens';
 
 export default function DropdownPicker({ label, placeholder, items, value, onSelect, disabled }) {
   const { theme } = useTheme();
@@ -77,20 +78,20 @@ export default function DropdownPicker({ label, placeholder, items, value, onSel
 
 const makeStyles = (C) => StyleSheet.create({
   wrapper: { marginBottom: 14 },
-  label: { fontSize: 12, fontWeight: '600', color: C.textSecondary, marginBottom: 6, letterSpacing: 0.3 },
+  label: { fontSize: 12, fontWeight: TYPE.semibold, color: C.textSecondary, marginBottom: 6, letterSpacing: 0.3 },
   trigger: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
     backgroundColor: C.surface2, borderWidth: 1, borderColor: C.border,
-    borderRadius: 10, paddingHorizontal: 14, paddingVertical: 13,
+    borderRadius: RADIUS.md, paddingHorizontal: 14, paddingVertical: 13,
   },
   triggerDisabled: { opacity: 0.45 },
-  triggerText: { flex: 1, fontSize: 14, color: C.text, fontWeight: '500' },
-  placeholder: { color: C.textTertiary, fontWeight: '400' },
+  triggerText: { flex: 1, fontSize: 14, color: C.text, fontWeight: TYPE.medium },
+  placeholder: { color: C.textTertiary, fontWeight: TYPE.regular },
   arrow: { fontSize: 10, color: C.textTertiary, marginLeft: 8 },
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.45)' },
   sheet: {
     position: 'absolute', bottom: 0, left: 0, right: 0,
-    backgroundColor: C.surface, borderTopLeftRadius: 20, borderTopRightRadius: 20,
+    backgroundColor: C.surface, borderTopLeftRadius: RADIUS.lg, borderTopRightRadius: RADIUS.lg,
     maxHeight: '75%', paddingBottom: Platform.OS === 'ios' ? 34 : 16,
     borderTopWidth: 1, borderColor: C.border,
   },
@@ -99,18 +100,18 @@ const makeStyles = (C) => StyleSheet.create({
     paddingHorizontal: 20, paddingVertical: 16,
     borderBottomWidth: 1, borderBottomColor: C.border,
   },
-  sheetTitle: { fontSize: 16, fontWeight: '600', color: C.text },
-  closeBtn: { width: 28, height: 28, borderRadius: 14, backgroundColor: C.surface2, alignItems: 'center', justifyContent: 'center' },
+  sheetTitle: { fontSize: 16, fontWeight: TYPE.semibold, color: C.text },
+  closeBtn: { width: 28, height: 28, borderRadius: RADIUS.pill, backgroundColor: C.surface2, alignItems: 'center', justifyContent: 'center' },
   closeTxt: { fontSize: 12, color: C.textSecondary },
   searchWrap: { paddingHorizontal: 16, paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: C.border },
   searchInput: {
-    backgroundColor: C.surface2, borderRadius: 8, paddingHorizontal: 12,
+    backgroundColor: C.surface2, borderRadius: RADIUS.sm, paddingHorizontal: 12,
     paddingVertical: 9, fontSize: 14, color: C.text, borderWidth: 1, borderColor: C.border,
   },
   item: { paddingHorizontal: 20, paddingVertical: 14, flexDirection: 'row', alignItems: 'center' },
   itemActive: { backgroundColor: C.accentLight },
   itemText: { flex: 1, fontSize: 14, color: C.text },
-  itemTextActive: { color: C.accent, fontWeight: '600' },
+  itemTextActive: { color: C.accent, fontWeight: TYPE.semibold },
   checkmark: { fontSize: 14, color: C.accent, marginLeft: 8 },
   sep: { height: 1, backgroundColor: C.border, marginHorizontal: 16 },
 });

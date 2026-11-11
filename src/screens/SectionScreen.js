@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
+import { RADIUS, TYPE } from '../theme/tokens';
 import { MEMBER_TYPES, SECTIONS } from '../data/steelData';
 import DropdownPicker from '../components/DropdownPicker';
 
@@ -123,44 +124,44 @@ export default function SectionScreen({ state, setState }) {
 const makeStyles = (C) => StyleSheet.create({
   scroll: { flex: 1, backgroundColor: C.bg },
   card: {
-    margin: 16, backgroundColor: C.surface, borderRadius: 16,
+    margin: 16, backgroundColor: C.surface, borderRadius: RADIUS.md,
     padding: 16, borderWidth: 1, borderColor: C.border,
     shadowColor: C.cardShadow, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 1, shadowRadius: 8, elevation: 3,
   },
-  cardTitle: { fontSize: 11, fontWeight: '700', color: C.textTertiary, letterSpacing: 1, marginBottom: 16 },
+  cardTitle: { fontSize: 11, fontWeight: TYPE.bold, color: C.textTertiary, letterSpacing: 1, marginBottom: 16 },
   massRow: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
-    backgroundColor: C.accentLight, borderRadius: 12, padding: 14,
+    backgroundColor: C.accentLight, borderRadius: RADIUS.md, padding: 14,
     borderWidth: 1, borderColor: C.accent + '40',
   },
-  massIcon: { width: 40, height: 40, borderRadius: 20, backgroundColor: C.accent + '20', alignItems: 'center', justifyContent: 'center' },
-  massLabel: { fontSize: 11, color: C.accentText, marginBottom: 2, fontWeight: '500' },
-  massValue: { fontSize: 26, fontWeight: '700', color: C.accent },
+  massIcon: { width: 40, height: 40, borderRadius: RADIUS.pill, backgroundColor: C.accent + '20', alignItems: 'center', justifyContent: 'center' },
+  massLabel: { fontSize: 11, color: C.accentText, marginBottom: 2, fontWeight: TYPE.medium },
+  massValue: { fontSize: 26, fontWeight: TYPE.bold, color: C.accent },
   massUnit: { fontSize: 13, color: C.accentText },
   propsCard: {
     marginHorizontal: 16, marginBottom: 0, backgroundColor: C.surface,
-    borderRadius: 16, padding: 16, borderWidth: 1, borderColor: C.border,
+    borderRadius: RADIUS.md, padding: 16, borderWidth: 1, borderColor: C.border,
     shadowColor: C.cardShadow, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 1, shadowRadius: 4, elevation: 2,
   },
-  sectionLabel: { fontSize: 10, fontWeight: '700', color: C.textTertiary, letterSpacing: 0.8, marginBottom: 12 },
+  sectionLabel: { fontSize: 10, fontWeight: TYPE.bold, color: C.textTertiary, letterSpacing: 0.8, marginBottom: 12 },
   propsGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   propItem: {
-    backgroundColor: C.surface2, borderRadius: 10, padding: 10,
+    backgroundColor: C.surface2, borderRadius: RADIUS.md, padding: 10,
     minWidth: '47%', flex: 1,
   },
-  propKey: { fontSize: 10, color: C.textTertiary, marginBottom: 3, fontWeight: '500' },
-  propVal: { fontSize: 14, fontWeight: '600', color: C.text },
+  propKey: { fontSize: 10, color: C.textTertiary, marginBottom: 3, fontWeight: TYPE.medium },
+  propVal: { fontSize: 14, fontWeight: TYPE.semibold, color: C.text },
   infoBox: {
-    backgroundColor: C.warningLight, borderRadius: 10, padding: 12,
+    backgroundColor: C.warningLight, borderRadius: RADIUS.sm, padding: 12,
     borderWidth: 1, borderColor: C.warning + '40', marginTop: 4,
   },
   infoText: { fontSize: 12, color: C.warningText, lineHeight: 18 },
   hintCard: {
-    margin: 16, backgroundColor: C.surface, borderRadius: 16,
+    margin: 16, backgroundColor: C.surface, borderRadius: RADIUS.md,
     padding: 24, alignItems: 'center', borderWidth: 1, borderColor: C.border,
   },
   hintIcon: { fontSize: 40, marginBottom: 12 },
-  hintTitle: { fontSize: 18, fontWeight: '700', color: C.accent, marginBottom: 6 },
+  hintTitle: { fontSize: 18, fontWeight: TYPE.bold, color: C.accent, marginBottom: 6 },
   hintText: { fontSize: 13, color: C.textSecondary, textAlign: 'center', lineHeight: 20, marginBottom: 8 },
   hintSub: { fontSize: 12, color: C.textTertiary, textAlign: 'center' },
 });

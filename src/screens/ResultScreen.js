@@ -3,6 +3,7 @@ import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet, Share, Alert, Platform,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
+import { RADIUS, TYPE } from '../theme/tokens';
 import { SECTIONS, MOC_LIST } from '../data/steelData';
 
 export default function ResultScreen({ state, onReset }) {
@@ -172,67 +173,67 @@ const makeStyles = (C) => StyleSheet.create({
   scroll: { flex: 1, backgroundColor: C.bg },
   emptyWrap: { flex: 1, backgroundColor: C.bg, alignItems: 'center', justifyContent: 'center', padding: 32 },
   emptyIcon: { fontSize: 48, marginBottom: 16 },
-  emptyTitle: { fontSize: 18, fontWeight: '700', color: C.text, marginBottom: 8 },
+  emptyTitle: { fontSize: 18, fontWeight: TYPE.bold, color: C.text, marginBottom: 8 },
   emptyText: { fontSize: 14, color: C.textSecondary, textAlign: 'center', lineHeight: 22 },
   warnBox: {
-    margin: 16, marginBottom: 0, backgroundColor: C.warningLight, borderRadius: 12,
+    margin: 16, marginBottom: 0, backgroundColor: C.warningLight, borderRadius: RADIUS.md,
     padding: 12, borderWidth: 1, borderColor: C.warning + '50',
   },
   warnText: { fontSize: 13, color: C.warningText, lineHeight: 18 },
 
   heroCard: {
-    margin: 16, backgroundColor: C.accent, borderRadius: 20, padding: 20,
+    margin: 16, backgroundColor: C.accent, borderRadius: RADIUS.md, padding: 20,
   },
-  heroLabel: { fontSize: 11, fontWeight: '700', color: 'rgba(255,255,255,0.7)', letterSpacing: 1.5, marginBottom: 6 },
+  heroLabel: { fontSize: 11, fontWeight: TYPE.bold, color: 'rgba(255,255,255,0.7)', letterSpacing: 1.5, marginBottom: 6 },
   heroRow: { flexDirection: 'row', alignItems: 'baseline', marginBottom: 16 },
-  heroVal: { fontSize: 48, fontWeight: '800', color: '#FFFFFF', letterSpacing: -1 },
-  heroUnit: { fontSize: 18, fontWeight: '400', color: 'rgba(255,255,255,0.85)', marginLeft: 8 },
-  heroSubRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: 12, padding: 12 },
+  heroVal: { fontSize: 48, fontWeight: TYPE.bold, color: '#FFFFFF', letterSpacing: -1 },
+  heroUnit: { fontSize: 18, fontWeight: TYPE.regular, color: 'rgba(255,255,255,0.85)', marginLeft: 8 },
+  heroSubRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: RADIUS.md, padding: 12 },
   heroSubItem: { flex: 1, alignItems: 'center' },
   heroSubDivider: { width: 1, backgroundColor: 'rgba(255,255,255,0.3)' },
-  heroSubVal: { fontSize: 18, fontWeight: '700', color: '#FFFFFF', marginBottom: 2 },
-  heroSubUnit: { fontSize: 11, color: 'rgba(255,255,255,0.7)', fontWeight: '500' },
+  heroSubVal: { fontSize: 18, fontWeight: TYPE.bold, color: '#FFFFFF', marginBottom: 2 },
+  heroSubUnit: { fontSize: 11, color: 'rgba(255,255,255,0.7)', fontWeight: TYPE.medium },
 
   statGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginHorizontal: 16, marginBottom: 0 },
   statBox: {
-    flex: 1, minWidth: '45%', backgroundColor: C.surface, borderRadius: 14,
+    flex: 1, minWidth: '45%', backgroundColor: C.surface, borderRadius: RADIUS.md,
     padding: 14, borderWidth: 1, borderColor: C.border,
   },
-  statLabel: { fontSize: 10, color: C.textTertiary, fontWeight: '600', letterSpacing: 0.4, marginBottom: 5 },
-  statVal: { fontSize: 18, fontWeight: '700', color: C.text },
+  statLabel: { fontSize: 10, color: C.textTertiary, fontWeight: TYPE.semibold, letterSpacing: 0.4, marginBottom: 5 },
+  statVal: { fontSize: 18, fontWeight: TYPE.bold, color: C.text },
   statUnit: { fontSize: 11, color: C.textSecondary },
 
   card: {
-    margin: 16, marginBottom: 0, backgroundColor: C.surface, borderRadius: 16,
+    margin: 16, marginBottom: 0, backgroundColor: C.surface, borderRadius: RADIUS.md,
     padding: 16, borderWidth: 1, borderColor: C.border,
     shadowColor: C.cardShadow, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 1, shadowRadius: 6, elevation: 3,
   },
-  cardTitle: { fontSize: 10, fontWeight: '700', color: C.textTertiary, letterSpacing: 1, marginBottom: 14 },
+  cardTitle: { fontSize: 10, fontWeight: TYPE.bold, color: C.textTertiary, letterSpacing: 1, marginBottom: 14 },
   sumRow: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
     paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: C.border,
   },
   sumKey: { fontSize: 12, color: C.textSecondary, flex: 1 },
-  sumVal: { fontSize: 13, fontWeight: '600', color: C.text, textAlign: 'right', flex: 1 },
+  sumVal: { fontSize: 13, fontWeight: TYPE.semibold, color: C.text, textAlign: 'right', flex: 1 },
   divider: { height: 1, backgroundColor: C.border, marginVertical: 8 },
   formulaBox: {
-    backgroundColor: C.accentLight, borderRadius: 10, padding: 12, marginVertical: 10,
+    backgroundColor: C.accentLight, borderRadius: RADIUS.md, padding: 12, marginVertical: 10,
     borderWidth: 1, borderColor: C.accent + '40',
   },
-  formulaLabel: { fontSize: 10, color: C.accentText, fontWeight: '600', letterSpacing: 0.5, marginBottom: 6 },
+  formulaLabel: { fontSize: 10, color: C.accentText, fontWeight: TYPE.semibold, letterSpacing: 0.5, marginBottom: 6 },
   formulaText: { fontSize: 13, color: C.accentText, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', marginBottom: 2 },
-  formulaResult: { fontSize: 15, color: C.accent, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', fontWeight: '700', marginTop: 4 },
+  formulaResult: { fontSize: 15, color: C.accent, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', fontWeight: TYPE.bold, marginTop: 4 },
 
   actionsRow: { flexDirection: 'row', gap: 10, margin: 16, marginBottom: 0 },
   shareBtn: {
-    flex: 1, backgroundColor: C.accent, borderRadius: 14, padding: 14, alignItems: 'center',
+    flex: 1, backgroundColor: C.accent, borderRadius: RADIUS.md, padding: 14, alignItems: 'center',
   },
-  shareBtnText: { color: '#FFFFFF', fontSize: 14, fontWeight: '700' },
+  shareBtnText: { color: '#FFFFFF', fontSize: 14, fontWeight: TYPE.bold },
   resetBtn: {
-    flex: 1, backgroundColor: C.surface, borderRadius: 14, padding: 14,
+    flex: 1, backgroundColor: C.surface, borderRadius: RADIUS.md, padding: 14,
     alignItems: 'center', borderWidth: 1.5, borderColor: C.danger,
   },
-  resetBtnText: { color: C.dangerText, fontSize: 14, fontWeight: '700' },
+  resetBtnText: { color: C.dangerText, fontSize: 14, fontWeight: TYPE.bold },
 
   footer: { fontSize: 11, color: C.textTertiary, textAlign: 'center', margin: 16, marginBottom: 0 },
 });

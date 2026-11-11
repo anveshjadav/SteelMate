@@ -4,6 +4,7 @@ import {
   StyleSheet, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
+import { RADIUS, TYPE } from '../theme/tokens';
 import { SECTIONS, MOC_LIST } from '../data/steelData';
 
 export default function CalculateScreen({ state, setState }) {
@@ -194,85 +195,85 @@ export default function CalculateScreen({ state, setState }) {
 const makeStyles = (C) => StyleSheet.create({
   emptyWrap: { flex: 1, backgroundColor: C.bg, alignItems: 'center', justifyContent: 'center', padding: 32 },
   emptyIcon: { fontSize: 48, marginBottom: 16 },
-  emptyTitle: { fontSize: 18, fontWeight: '700', color: C.text, marginBottom: 8 },
+  emptyTitle: { fontSize: 18, fontWeight: TYPE.bold, color: C.text, marginBottom: 8 },
   emptyText: { fontSize: 14, color: C.textSecondary, textAlign: 'center', lineHeight: 22 },
 
   banner: {
-    margin: 16, marginBottom: 0, backgroundColor: C.accent, borderRadius: 14,
+    margin: 16, marginBottom: 0, backgroundColor: C.accent, borderRadius: RADIUS.md,
     padding: 16, flexDirection: 'row', alignItems: 'center',
   },
   bannerLeft: { flex: 1 },
-  bannerLabel: { fontSize: 10, color: 'rgba(255,255,255,0.7)', fontWeight: '600', letterSpacing: 0.8, marginBottom: 4 },
-  bannerDesig: { fontSize: 20, fontWeight: '700', color: '#FFFFFF' },
+  bannerLabel: { fontSize: 10, color: 'rgba(255,255,255,0.7)', fontWeight: TYPE.semibold, letterSpacing: 0.8, marginBottom: 4 },
+  bannerDesig: { fontSize: 20, fontWeight: TYPE.bold, color: '#FFFFFF' },
   bannerRight: { alignItems: 'flex-end' },
-  bannerMassVal: { fontSize: 24, fontWeight: '700', color: '#FFFFFF' },
+  bannerMassVal: { fontSize: 24, fontWeight: TYPE.bold, color: '#FFFFFF' },
   bannerMassUnit: { fontSize: 12, color: 'rgba(255,255,255,0.75)' },
 
   card: {
-    margin: 16, marginBottom: 0, backgroundColor: C.surface, borderRadius: 16,
+    margin: 16, marginBottom: 0, backgroundColor: C.surface, borderRadius: RADIUS.md,
     padding: 16, borderWidth: 1, borderColor: C.border,
     shadowColor: C.cardShadow, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 1, shadowRadius: 6, elevation: 3,
   },
-  cardTitle: { fontSize: 10, fontWeight: '700', color: C.textTertiary, letterSpacing: 1, marginBottom: 14 },
+  cardTitle: { fontSize: 10, fontWeight: TYPE.bold, color: C.textTertiary, letterSpacing: 1, marginBottom: 14 },
 
   mocGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 },
   mocBtn: {
-    paddingVertical: 8, paddingHorizontal: 10, borderRadius: 8,
+    paddingVertical: 8, paddingHorizontal: 10, borderRadius: RADIUS.sm,
     borderWidth: 1.5, borderColor: C.border, backgroundColor: C.surface2,
     minWidth: '22%',
   },
   mocBtnActive: { borderColor: C.accent, backgroundColor: C.accentLight },
-  mocBtnLabel: { fontSize: 11, fontWeight: '600', color: C.textSecondary, marginBottom: 2 },
+  mocBtnLabel: { fontSize: 11, fontWeight: TYPE.semibold, color: C.textSecondary, marginBottom: 2 },
   mocBtnLabelActive: { color: C.accent },
   mocBtnDensity: { fontSize: 9, color: C.textTertiary },
   mocBtnDensityActive: { color: C.accentText },
 
   densityRow: {
-    flexDirection: 'row', backgroundColor: C.surface2, borderRadius: 10,
+    flexDirection: 'row', backgroundColor: C.surface2, borderRadius: RADIUS.md,
     padding: 12, marginBottom: 10,
   },
   densityInfo: { flex: 1 },
-  densityLabel: { fontSize: 10, color: C.textTertiary, marginBottom: 3, fontWeight: '500' },
-  densityVal: { fontSize: 18, fontWeight: '700', color: C.text },
-  densityUnit: { fontSize: 12, fontWeight: '400', color: C.textSecondary },
-  densityVal2: { fontSize: 13, fontWeight: '600', color: C.text },
+  densityLabel: { fontSize: 10, color: C.textTertiary, marginBottom: 3, fontWeight: TYPE.medium },
+  densityVal: { fontSize: 18, fontWeight: TYPE.bold, color: C.text },
+  densityUnit: { fontSize: 12, fontWeight: TYPE.regular, color: C.textSecondary },
+  densityVal2: { fontSize: 13, fontWeight: TYPE.semibold, color: C.text },
   densityDivider: { width: 1, backgroundColor: C.border, marginHorizontal: 14 },
   mocDesc: {
-    backgroundColor: C.successLight, borderRadius: 8, padding: 10,
+    backgroundColor: C.successLight, borderRadius: RADIUS.sm, padding: 10,
     borderWidth: 1, borderColor: C.success + '40',
   },
   mocDescText: { fontSize: 12, color: C.successText },
 
   inputRow: { flexDirection: 'row', gap: 10, marginBottom: 12 },
   inputGroup: { flex: 1 },
-  inputLabel: { fontSize: 11, fontWeight: '600', color: C.textSecondary, marginBottom: 6 },
-  inputWrap: { flexDirection: 'row', alignItems: 'center', backgroundColor: C.surface2, borderWidth: 1, borderColor: C.border, borderRadius: 10, overflow: 'hidden' },
+  inputLabel: { fontSize: 11, fontWeight: TYPE.semibold, color: C.textSecondary, marginBottom: 6 },
+  inputWrap: { flexDirection: 'row', alignItems: 'center', backgroundColor: C.surface2, borderWidth: 1, borderColor: C.border, borderRadius: RADIUS.md, overflow: 'hidden' },
   input: {
-    backgroundColor: C.surface2, borderWidth: 1, borderColor: C.border, borderRadius: 10,
-    paddingHorizontal: 12, paddingVertical: 12, fontSize: 16, fontWeight: '600', color: C.text,
+    backgroundColor: C.surface2, borderWidth: 1, borderColor: C.border, borderRadius: RADIUS.md,
+    paddingHorizontal: 12, paddingVertical: 12, fontSize: 16, fontWeight: TYPE.semibold, color: C.text,
   },
-  inputSuffix: { paddingHorizontal: 10, fontSize: 12, fontWeight: '600', color: C.textTertiary },
+  inputSuffix: { paddingHorizontal: 10, fontSize: 12, fontWeight: TYPE.semibold, color: C.textTertiary },
 
   plateResult: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    backgroundColor: C.accentLight, borderRadius: 10, padding: 12, marginTop: 4,
+    backgroundColor: C.accentLight, borderRadius: RADIUS.md, padding: 12, marginTop: 4,
   },
-  plateResultLabel: { fontSize: 12, color: C.accentText, fontWeight: '500' },
-  plateResultVal: { fontSize: 16, fontWeight: '700', color: C.accent },
+  plateResultLabel: { fontSize: 12, color: C.accentText, fontWeight: TYPE.medium },
+  plateResultVal: { fontSize: 16, fontWeight: TYPE.bold, color: C.accent },
 
   quickRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 },
   quickBtn: {
-    width: 44, height: 36, borderRadius: 8, borderWidth: 1,
+    width: 44, height: 36, borderRadius: RADIUS.sm, borderWidth: 1,
     borderColor: C.border, backgroundColor: C.surface2, alignItems: 'center', justifyContent: 'center',
   },
   quickBtnActive: { borderColor: C.accent, backgroundColor: C.accentLight },
-  quickBtnText: { fontSize: 13, fontWeight: '600', color: C.textSecondary },
+  quickBtnText: { fontSize: 13, fontWeight: TYPE.semibold, color: C.textSecondary },
   quickBtnTextActive: { color: C.accent },
 
   totalLenRow: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    backgroundColor: C.surface2, borderRadius: 10, padding: 12,
+    backgroundColor: C.surface2, borderRadius: RADIUS.md, padding: 12,
   },
-  totalLenLabel: { fontSize: 12, color: C.textSecondary, fontWeight: '500' },
-  totalLenVal: { fontSize: 16, fontWeight: '700', color: C.text },
+  totalLenLabel: { fontSize: 12, color: C.textSecondary, fontWeight: TYPE.medium },
+  totalLenVal: { fontSize: 16, fontWeight: TYPE.bold, color: C.text },
 });
