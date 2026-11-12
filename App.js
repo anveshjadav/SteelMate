@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TouchableOpacity, Image,StyleSheet,
-  SafeAreaView, StatusBar, Platform,
+  View, Text, TouchableOpacity, Image, StyleSheet,
+  StatusBar, Platform,
 } from 'react-native';
+import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from './src/theme/ThemeContext';
 import { RADIUS, TYPE } from './src/theme/tokens';
 import SectionScreen from './src/screens/SectionScreen';
@@ -28,6 +29,7 @@ const TABS = [
 function AppContent() {
   const { theme, toggleTheme } = useTheme();
   const C = theme.colors;
+  const insets = useSafeAreaInsets();
   const [activeTab, setActiveTab] = useState(0);
   const [state, setState] = useState(INITIAL_STATE);
 
@@ -39,7 +41,10 @@ function AppContent() {
   };
 
   return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: C.headerBg }]}>
+      <SafeAreaView
+        edges={['top']}
+        style={[styles.safe, { backgroundColor: C.headerBg }]}
+      >
       <StatusBar
         barStyle={theme.dark ? 'light-content' : 'dark-content'}
         backgroundColor={C.headerBg}
@@ -102,7 +107,7 @@ function AppContent() {
         {activeTab === 2 && <ResultScreen state={state} onReset={handleReset} />}
       </View>
 
-      <View style={[styles.bottomNav, { backgroundColor: C.surface, borderTopColor: C.border }]}>
+      <View style={[styles.bottomNav, { backgroundColor: C.surface, borderTopColor: C.border, paddingBottom: Math.max(insets.bottom, 10) }]}>
         <TouchableOpacity
           style={[styles.navBtn, activeTab === 0 && styles.navBtnDisabled]}
           onPress={() => setActiveTab(t => Math.max(0, t - 1))}
@@ -129,15 +134,17 @@ function AppContent() {
           </Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+      </SafeAreaView>
   );
 }
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 
