@@ -61,7 +61,7 @@ function AppContent() {
             <Image source={require('./assets/icon2.png')} style={{ width: 40, height:40 }} /> 
           </View>
           <View>
-            <Text style={styles.appTitle}>SteelCalc</Text>
+            <Text style={styles.appTitle}>SteelMate</Text>
             <Text style={styles.appSub}>Structural Weight Calculator</Text>
           </View>
         </View>
