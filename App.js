@@ -27,11 +27,15 @@ const TABS = [
 ];
 
 function AppContent() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, hydrated } = useTheme();
   const C = theme.colors;
   const insets = useSafeAreaInsets();
   const [activeTab, setActiveTab] = useState(0);
   const [state, setState] = useState(INITIAL_STATE);
+
+  // Wait until the persisted theme is restored before first paint,
+  // otherwise the app flashes light mode on every launch.
+  if (!hydrated) return null;
 
   const styles = makeStyles(C);
 
